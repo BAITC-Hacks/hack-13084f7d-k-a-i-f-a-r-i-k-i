@@ -1,0 +1,36 @@
+# Only application sources and the explicit offline test fixtures enter builds.
+**
+!Dockerfile
+!.dockerignore
+!pyproject.toml
+!uv.lock
+!README.md
+!.env.example
+!orgagent/
+!orgagent/**
+!config/
+!config/**
+!tests/
+!tests/**
+!eval/
+!eval/**
+!ui/
+!ui/**
+!api/
+!api/**
+!data/
+!data/demo/
+!data/demo/**
+!HackAlem_test_dataset/
+!HackAlem_test_dataset/**
+
+# Never send secrets, host virtualenvs, generated files or caches to Docker.
+**/.env
+**/.env.*
+!.env.example
+**/.venv
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.ruff_cache
+eval/results.json

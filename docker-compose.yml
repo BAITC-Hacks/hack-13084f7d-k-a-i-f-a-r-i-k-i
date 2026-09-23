@@ -1,0 +1,43 @@
+# T1 foundation: the default command validates configuration and exits.
+# T15 will start the complete Streamlit application on port 8501.
+name: orgdiff-agent
+
+services:
+  orgagent:
+    build:
+      context: .
+      target: runtime
+    init: true
+    volumes:
+      - type: bind
+        source: ./.env
+        target: /app/.env
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./config
+        target: /app/config
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./data
+        target: /app/data
+        read_only: true
+        bind:
+          create_host_path: false
+      - runs:/app/runs
+      - llm-cache:/app/.cache/llm
+
+  tests:
+    profiles: [tools]
+    build:
+      context: .
+      target: dev
+    init: true
+    network_mode: none
+
+volumes:
+  runs:
+  llm-cache:

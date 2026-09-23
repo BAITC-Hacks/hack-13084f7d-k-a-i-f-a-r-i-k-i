@@ -5,10 +5,8 @@ python eval.py output/report.json data/test_set/ground_truth.json
 """
 import json, sys
 
-
 def refs(ev):
     return {(e["doc_name"] if "doc_name" in e else e["doc"], e["clause"]) for e in ev}
-
 
 def main(report_path, gt_path):
     rep = json.load(open(report_path, encoding="utf-8"))

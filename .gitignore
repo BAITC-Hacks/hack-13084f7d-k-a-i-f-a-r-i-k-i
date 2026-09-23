@@ -13,3 +13,6 @@ venv/
 Thumbs.db
 
 *.log
+.cache/
+output/
+.pytest_cache/

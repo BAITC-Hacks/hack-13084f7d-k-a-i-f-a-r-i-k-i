@@ -1,19 +1,31 @@
-__pycache__/
-*.pyc
-
+# Local secrets (the example is intentionally tracked).
 .env
+.env.*
+!.env.example
 
+# Python / development tools.
 .venv/
-venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.cache/
+.tmp/
 
-.vscode/
+# Generated runs; only curated reference runs may be committed.
+runs/*
+!runs/.gitkeep
+!runs/demo_reference/
+!runs/demo_reference/**
+eval/results.json
+
+# Editors and operating systems.
 .idea/
-
+.vscode/
 .DS_Store
 Thumbs.db
-
-*.log
-.cache/
-output/
-.pytest_cache/
-
